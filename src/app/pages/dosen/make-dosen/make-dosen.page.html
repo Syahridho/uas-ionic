@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      style="position: absolute; top: 6px; left: 6px; z-index: 9999"
+      routerLink="/list-dosen"
+      ><ion-icon name="arrow-back"></ion-icon
+    ></ion-button>
+    <ion-title style="text-align: center">Dosen</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="dosenForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Nid</ion-label>
+        <ion-input formControlName="nid"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nama Dosen</ion-label>
+        <ion-input formControlName="name" type="text" required> </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block"
+            >Tambahkan</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

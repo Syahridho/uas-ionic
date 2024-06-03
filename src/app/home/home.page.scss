@@ -25,3 +25,16 @@
 #container a {
   text-decoration: none;
 }
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}

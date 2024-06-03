@@ -1,20 +1,50 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar style="position: relative">
+    <ion-title>Menu</ion-title>
+    <ion-button
+      color="danger"
+      (click)="signOut()"
+      style="position: absolute; right: 10px; top: 6px"
+      >Logout</ion-button
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          ><ion-button
+            routerLink="/list-mahasiswa"
+            style="width: 100%; height: 100px"
+            >Mahasiswa</ion-button
+          ></ion-col
+        >
+        <ion-col
+          ><ion-button
+            routerLink="/list-dosen"
+            style="width: 100%; height: 100px"
+            >Dosen</ion-button
+          ></ion-col
+        >
+      </ion-row>
+      <ion-row>
+        <ion-col
+          ><ion-button
+            routerLink="/list-matkul"
+            style="width: 100%; height: 100px"
+            >Matkul</ion-button
+          ></ion-col
+        >
+        <ion-col
+          ><ion-button
+            routerLink="/list-krs"
+            style="width: 100%; height: 100px; text-align: left !important"
+            >KRS</ion-button
+          ></ion-col
+        >
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-content>

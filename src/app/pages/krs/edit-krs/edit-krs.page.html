@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      style="position: absolute; top: 6px; left: 6px; z-index: 9999"
+      routerLink="/list-krs"
+      ><ion-icon name="arrow-back"></ion-icon
+    ></ion-button>
+    <ion-title style="text-align: center">KRS</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateKrsForm" (ngSubmit)="updateForm()">
+      <ion-item>
+        <ion-label position="floating">Nama Mahasiswa</ion-label>
+        <ion-input formControlName="nameMahasiswa" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Name Matkul</ion-label>
+        <ion-input
+          formControlName="nameMatkul"
+          type="text"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">semester</ion-label>
+        <ion-input formControlName="semester" type="text" required> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">tahun</ion-label>
+        <ion-input formControlName="tahun" type="text" required> </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block"
+            >Update</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

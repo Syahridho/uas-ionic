@@ -1,0 +1,87 @@
+<ion-content [fullscreen]="true">
+  <div style="padding: 0 20px; margin-top: 59px">
+    <h1>Daftar</h1>
+    <p>Daftar untuk masuk</p>
+  </div>
+  <form class="ion-padding" [formGroup]="regForm">
+    <ion-input
+      label="FullName"
+      label-placement="floating"
+      fill="outline"
+      placeholder="FullName"
+      style="margin-bottom: 16px"
+      formControlName="fullname"
+    ></ion-input>
+    <!-- Fullname validation messages -->
+    <div
+      *ngIf="regForm.controls['fullname'].touched && regForm.controls['fullname'].invalid"
+    >
+      <ion-text
+        *ngIf="regForm.controls['fullname'].errors?.required"
+        color="danger"
+      >
+        Fullname is required.
+      </ion-text>
+    </div>
+
+    <ion-input
+      label="Email"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Email"
+      style="margin-bottom: 16px"
+      formControlName="email"
+    ></ion-input>
+    <!-- Email validation messages -->
+    <div
+      *ngIf="regForm.controls['email'].touched && regForm.controls['email'].invalid"
+    >
+      <ion-text
+        *ngIf="regForm.controls['email'].errors?.required"
+        color="danger"
+      >
+        Email is required.
+      </ion-text>
+      <ion-text
+        *ngIf="regForm.controls['email'].errors?.pattern"
+        color="danger"
+      >
+        Please provide a valid email.
+      </ion-text>
+    </div>
+
+    <ion-input
+      label="Password"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Password"
+      style="margin-bottom: 16px"
+      formControlName="password"
+    ></ion-input>
+
+    <!-- Password validation messages -->
+    <div
+      *ngIf="regForm.controls['password'].touched && regForm.controls['password'].invalid"
+    >
+      <ion-text
+        *ngIf="regForm.controls['password'].errors?.required"
+        color="danger"
+      >
+        Password is required.
+      </ion-text>
+      <ion-text
+        *ngIf="regForm.controls['password'].errors?.pattern"
+        color="danger"
+      >
+        Password must be at least 8 characters long and contain at least one
+        uppercase letter, one lowercase letter, one number, and one special
+        character.
+      </ion-text>
+    </div>
+
+    <ion-button (click)="signUp()" expand="block"> Daftar </ion-button>
+    <div style="text-align: center">
+      <p>Sudah punya akun? <a [routerLink]="['/login']">Masuk sini</a></p>
+    </div>
+  </form>
+</ion-content>

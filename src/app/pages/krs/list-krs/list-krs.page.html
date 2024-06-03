@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      style="position: absolute; top: 6px; left: 6px; z-index: 9999"
+      routerLink="/home"
+      ><ion-icon name="arrow-back"></ion-icon
+    ></ion-button>
+    <ion-title style="text-align: center">KRS</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-item *ngFor="let krs of Krs" class="user-list">
+      <ion-label>
+        <h5>{{krs.nameMahasiswa}}</h5>
+        <p>{{krs.nameMatkul}}</p>
+        <p>{{krs.semester}}</p>
+        <p>{{krs.tahun}}</p>
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit-krs/', krs.$key]">
+          <ion-icon name="create" style="zoom: 2"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteKrs(krs.$key)">
+          <ion-icon name="trash" style="zoom: 2"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    shape="round"
+    routerLinkActive="tab-selected"
+    routerLink="/make-krs"
+    tab="make-krs"
+    style="position: absolute; right: 10px; bottom: 10px"
+  >
+    <ion-icon
+      slot="icon-only"
+      name="add-circle"
+      style="padding: 14px"
+    ></ion-icon>
+  </ion-button>
+</ion-content>

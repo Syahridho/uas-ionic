@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      style="position: absolute; top: 6px; left: 6px; z-index: 9999"
+      routerLink="/list-mahasiswa"
+      ><ion-icon name="arrow-back"></ion-icon
+    ></ion-button>
+    <ion-title style="text-align: center">Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateMahasiswaForm" (ngSubmit)="updateForm()">
+      <ion-item>
+        <ion-label position="floating">Nim</ion-label>
+        <ion-input formControlName="nim" type="text" required> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Jurusan</ion-label>
+        <ion-input formControlName="jurusan" type="text" required> </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block"
+            >Update</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

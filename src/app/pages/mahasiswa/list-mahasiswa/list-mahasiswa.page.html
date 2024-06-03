@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      style="position: absolute; top: 6px; left: 6px; z-index: 9999"
+      routerLink="/home"
+      ><ion-icon name="arrow-back"></ion-icon
+    ></ion-button>
+    <ion-title style="text-align: center">Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-item *ngFor="let mahasiswa of Mahasiswa" class="user-list">
+      <ion-label>
+        <h4>{{mahasiswa.nim}}</h4>
+        <h5>{{mahasiswa.name}}</h5>
+        <p>{{mahasiswa.jurusan}}</p>
+      </ion-label>
+      <div class="item-note" item-end>
+        <button
+          ion-button
+          clear
+          [routerLink]="['/edit-mahasiswa/', mahasiswa.$key]"
+        >
+          <ion-icon name="create" style="zoom: 2"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteMahasiswa(mahasiswa.$key)">
+          <ion-icon name="trash" style="zoom: 2"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    shape="round"
+    routerLinkActive="tab-selected"
+    routerLink="/make-mahasiswa"
+    tab="make-mahasiswa"
+    style="position: absolute; right: 10px; bottom: 10px"
+  >
+    <ion-icon
+      slot="icon-only"
+      name="add-circle"
+      style="padding: 14px"
+    ></ion-icon>
+  </ion-button>
+</ion-content>

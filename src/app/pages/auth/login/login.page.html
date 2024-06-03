@@ -1,0 +1,72 @@
+<ion-content [fullscreen]="true">
+  <div style="padding: 0 20px; margin-top: 59px">
+    <h1>Selamat datang</h1>
+    <p>silahkan masuk</p>
+  </div>
+  <form class="ion-padding" [formGroup]="loginForm">
+    <ion-input
+      label="Email"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Email"
+      formControlName="email"
+      style="margin-bottom: 20px"
+    ></ion-input>
+    <div
+      style="padding-top: -26px; padding-bottom: 16px"
+      *ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid"
+    >
+      <ion-text
+        *ngIf="errorControl.email.errors?.required"
+        class="errorInput"
+        color="danger"
+        >Email is required.</ion-text
+      >
+      <ion-text
+        *ngIf="errorControl.email.errors?.pattern"
+        class="errorInput"
+        color="danger"
+        >Please provide valid email.</ion-text
+      >
+    </div>
+    <ion-input
+      label="Password"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Password"
+      formControlName="password"
+      style="margin-bottom: 10px"
+    ></ion-input>
+    <div
+      style="padding-top: -26px; padding-bottom: 16px"
+      *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid"
+    >
+      <ion-text
+        *ngIf="errorControl.password.errors?.required"
+        class="errorInput"
+        color="danger"
+        >Password is required.</ion-text
+      >
+      <ion-text
+        *ngIf="errorControl.password.errors?.pattern"
+        class="errorInput"
+        color="danger"
+        >Password must be more than 8 length containing at least one character.
+        at least one Capital letter. at least one number.
+      </ion-text>
+    </div>
+    <div>
+      <a
+        style="float: right; margin-bottom: 20px"
+        [routerLink]="['/reset-password']"
+        >Lupa Password?</a
+      >
+    </div>
+    <ion-button (click)="login()" expand="block"> Masuk </ion-button>
+    <div>
+      <p style="text-align: center">
+        Belum punya akun? <a [routerLink]="['/signup']">Sini Daftar</a>
+      </p>
+    </div>
+  </form>
+</ion-content>
