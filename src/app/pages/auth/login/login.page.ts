@@ -20,7 +20,6 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.signUP()
     this.loginForm = this.formBuilder.group({
       email: [
         '',
@@ -48,27 +47,32 @@ export class LoginPage implements OnInit {
   async login() {
     const loading = await this.loadingController.create();
     await loading.present();
-    // console.log(this.email + this.password);
-    if (this.loginForm?.valid) {
-      //  await  loading.dismiss();
-      const user = await this.authService
-        .loginUser(this.loginForm.value.email, this.loginForm.value.password)
-        .catch((err) => {
-          this.presentToast(err);
-          console.log(err);
-          loading.dismiss();
-        });
 
-      if (user) {
+    if (this.loginForm?.valid) {
+      try {
+        const user = await this.authService.loginUser(
+          this.loginForm.value.email,
+          this.loginForm.value.password
+        );
+
+        if (user) {
+          this.router.navigate(['/home']);
+        } else {
+          this.presentToast('Login failed');
+        }
+      } catch (err) {
+        this.presentToast(err);
+        console.log(err);
+      } finally {
         loading.dismiss();
-        this.router.navigate(['/home']);
       }
     } else {
-      return console.log('Please provide all the required values!');
+      loading.dismiss();
+      console.log('Please provide all the required values!');
     }
   }
 
-  async presentToast(message: undefined) {
+  async presentToast(message: any) {
     console.log(message);
 
     const toast = await this.toastController.create({
